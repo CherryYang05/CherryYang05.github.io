@@ -1112,6 +1112,7 @@ pre .javascript .function {
 }
 .header-inner {
   position: relative;
+  border-radius: 0 0 12px 12px !important;
 }
 .headband {
   height: 3px;
@@ -1244,6 +1245,10 @@ pre .javascript .function {
   .post-body {
     word-break: break-word;
   }
+}
+.post-body a {
+  color: #428bca;
+  font-weight: bold;
 }
 .post-body .fancybox img {
   display: block !important;
@@ -1710,6 +1715,7 @@ pre .javascript .function {
   padding: 20px 10px;
   color: #999;
   text-align: center;
+  border-radius: 12px !important;
 }
 .site-overview-wrap {
   overflow: hidden;
@@ -1841,7 +1847,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4b67ff;
+  background: #8aacdf;
 }
 .links-of-blogroll {
   font-size: 13px;
