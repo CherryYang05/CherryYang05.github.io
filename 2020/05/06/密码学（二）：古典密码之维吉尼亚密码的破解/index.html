@@ -397,7 +397,7 @@
       
         <h2 id="维吉尼亚密码的破解"><a href="#维吉尼亚密码的破解" class="headerlink" title="维吉尼亚密码的破解"></a>维吉尼亚密码的破解</h2><h3 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h3><p>&emsp;&emsp;上一章我们介绍了维吉尼亚密码的原理，是通过移位替换的加密方法进行加密，但是因为概率论的出现这种简单的移位或替换就容易破解了，其原理很简单，英文中字母出现的频率是不一样的。比如字母 <strong>e</strong> 是出现频率最高的，占<strong>12.7%</strong>；其次是<strong>t</strong>，<strong>9.1%</strong>；然后是<strong>a</strong>，<strong>o</strong>，<strong>i</strong>，<strong>n</strong>等，最少的是<strong>z</strong>，只占<strong>0.1%</strong>。<br><a id="more"></a><br><img src="https://img-blog.csdnimg.cn/20200216150747368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" alt="字母出现概率"></p>
 <p><a id="具体概率表">具体概率表</a></p>
-<p><img src="https://img-blog.csdnimg.cn/20200216161337882.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_26,color_FFFFFF,t_70" width = "450" height = "500" alt="概率表" style="margin-left:50px"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200216161337882.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_26,color_FFFFFF,t_70" width="450" height="500" alt="概率表" style="margin-left:50px"></p>
 <p>除了英语，其他语言也有相关统计（<a href="https://www.cnblogs.com/inverseEntropy/p/10151176.html" target="_blank" rel="noopener">图片来源</a>）<br><img src="https://img-blog.csdnimg.cn/20200216150833315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" alt="多种语言的字母出现频率"></p>
 <h3 id="二、一般破解的方法"><a href="#二、一般破解的方法" class="headerlink" title="二、一般破解的方法"></a>二、一般破解的方法</h3><h4 id="1-穷举密钥搜索"><a href="#1-穷举密钥搜索" class="headerlink" title="1. 穷举密钥搜索"></a>1. 穷举密钥搜索</h4><p>&emsp;&emsp;只适用于与小的密钥空间，而像维吉尼亚密码的 $Z^n_{26}$ 是 26 的 n 次方的空间，当 n 很大时，计算量是相当大的。</p>
 <h4 id="2-频率统计"><a href="#2-频率统计" class="headerlink" title="2. 频率统计"></a>2. 频率统计</h4><h5 id="单表代换"><a href="#单表代换" class="headerlink" title="单表代换"></a>单表代换</h5><p><strong>移位密码：</strong> 相同的明文字母总是对应相同的密文字母，因此，尽管字母的外形改变了，他出现的概率还是不变的，只要根据足够多的样例来进行统计，最终密文字母的出现概率总是近似于明文字母的出现概率，并且与之一一对应。</p>
@@ -460,7 +460,7 @@ MI_c(x,y)=\frac{\displaystyle\sum_{i=0}^{25}f_if'_i}{nn'}</script><p>具体不�
 <script type="math/tex; mode=display">
 MI_c(C_i,C_j) \approx \displaystyle\sum_{l=0}^{25}p_{l-k_i}p_{l-k_j}=
 \displaystyle\sum_{l=0}^{25}p_lp_{l+k_i-k_j}=\displaystyle\sum_{l=0}^{25}p_{l-k_i+k_j}p_l</script><p>这里的下标是需要对 26 取模的，可以观察到：$Mi_c$ 取决于相对位移 $k_i-k_j$.</p>
-<p>移位表如下：<br><img src="https://img-blog.csdnimg.cn/20200216224709354.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" width="500"/><br>观察这里当相对距离为0时，重合互指数为 $0.065$，在之前提到的自然语言的重合互指数也是 $0.065$，这并不是巧合。当相对位移位 0 时，其实就是 $C_1,C_2$ 的集合是用同一种密文加密得到，这也就是单表代换这样，并不会改变重合指数。</p>
+<p>移位表如下：<br><img src="https://img-blog.csdnimg.cn/20200216224709354.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" width="500"><br>观察这里当相对距离为0时，重合互指数为 $0.065$，在之前提到的自然语言的重合互指数也是 $0.065$，这并不是巧合。当相对位移位 0 时，其实就是 $C_1,C_2$ 的集合是用同一种密文加密得到，这也就是单表代换这样，并不会改变重合指数。</p>
 <p>这里其实并不需要列举从 0 到 25 的所有值。</p>
 <h5 id="猜测不同密钥字的相对位移s（猜测范围0-25）"><a href="#猜测不同密钥字的相对位移s（猜测范围0-25）" class="headerlink" title="猜测不同密钥字的相对位移s（猜测范围0~25）"></a>猜测不同密钥字的相对位移s（猜测范围0~25）</h5><script type="math/tex; mode=display">
 MI_c(C_i,C_j)=\frac{\displaystyle\sum_{t=0}^{25}f_{i,t}f_{j,t-s} } {n_in_j}</script><p>&emsp;&emsp;这里 $n_i$ 是指集合 $C_i$ 中字符个数，这里 $n_j$ 是指集合 $C_j$ 中字符个数，$f_{i,t}$ 表示在集合 $C_i$ 中，$t$ 这个密文字符出现的次数，$f_{j,t-s}$ 表示在集合 $C_j$ 中，$t-s$ 这个密文字符出现的次数。</p>
@@ -468,9 +468,9 @@ MI_c(C_i,C_j)=\frac{\displaystyle\sum_{t=0}^{25}f_{i,t}f_{j,t-s} } {n_in_j}</scr
 <script type="math/tex; mode=display">
 m=c-k_i \pmod{26} \\ m=c'-k_j \pmod{26}</script><p>&emsp;&emsp;实际上，在维吉尼亚密码中，并没有很好的隐藏密钥和密文之间的相互关系，密钥之间的相互差距会体现在密文之间的相互关系。</p>
 <p>&emsp;&emsp;我们计算上面例子中的集合 $C_1,C_2,C_3,C_4,C_5$ 两两之间的重合互指数：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200216231804835.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" width="550"/></p>
+<p><img src="https://img-blog.csdnimg.cn/20200216231804835.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" width="550"></p>
 <p>&emsp;&emsp;这里的 $i,j$ 表示当取到不同集合的时候，后面的值表示当猜测的相对位移 $s$ 取不同值的时候重合互指数的结果。</p>
-<p>&emsp;&emsp;我们观察结果，当 $i=1,j=2,s=9$ 时，重合互指数达到了 $0.068$，因此可以得到 $k_1-k_2=9$.<br>&emsp;&emsp;但是当 $i=1,j=3;i=1,j=4$ 时，没有合适的相对位移，那么我们先暂时跳过，观察其他结果，发现当 $i=1,j=5,s=16$ 时，重合互指数达到 $0.070$，$i=2,j=3,s=13$ 的时候，重合互指数达到了 $0.067$.<br><img src="https://img-blog.csdnimg.cn/2020021623254417.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" width="550"/><br>我们列举完剩下的结果，得到：</p>
+<p>&emsp;&emsp;我们观察结果，当 $i=1,j=2,s=9$ 时，重合互指数达到了 $0.068$，因此可以得到 $k_1-k_2=9$.<br>&emsp;&emsp;但是当 $i=1,j=3;i=1,j=4$ 时，没有合适的相对位移，那么我们先暂时跳过，观察其他结果，发现当 $i=1,j=5,s=16$ 时，重合互指数达到 $0.070$，$i=2,j=3,s=13$ 的时候，重合互指数达到了 $0.067$.<br><img src="https://img-blog.csdnimg.cn/2020021623254417.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" width="550"><br>我们列举完剩下的结果，得到：</p>
 <script type="math/tex; mode=display">
 k_1-k_2=9 \\ k_1-k_5=16 \\ k_2-k_3=13 \\ k_2-k_5=7 \\ k_3-k_5=20 \\ k_4-k_5=11</script><h4 id="3-穷举搜索密钥字"><a href="#3-穷举搜索密钥字" class="headerlink" title="3. 穷举搜索密钥字"></a>3. 穷举搜索密钥字</h4><p>&emsp;&emsp;根据上述的结果，在确定密钥字之间关系式的基础上，只要穷举 $26$ 中可能性就可以了。因为当猜测 $k_1$ 的时候， $k_2$ 也就确定下来了，以此类推，剩下的几个密钥也就确定下来了，只要从 $A-Z$ 进行穷举即可。</p>
 <h3 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h3><p>&emsp;&emsp;一个好的密码加密方案（或者说是算法），应该要很好的隐藏密钥和密文之间的联系，通过更复杂的算法或者在更大的密钥空间中，可以有效避免穷举搜索破解。如何设计加密算法以及如何选择合适的密钥空间，将在今后继续学习。</p>
@@ -601,7 +601,7 @@ k_1-k_2=9 \\ k_1-k_5=16 \\ k_2-k_3=13 \\ k_2-k_5=7 \\ k_3-k_5=20 \\ k_4-k_5=11</
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
