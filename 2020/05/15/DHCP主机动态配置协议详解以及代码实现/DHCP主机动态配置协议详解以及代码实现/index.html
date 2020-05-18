@@ -86,7 +86,6 @@
 <meta property="og:site_name" content="打球只投三分">
 <meta property="og:description" content="一、DHCP介绍1. 简要介绍DHCP协议在我们日常生活中应该是最常见而又经常被忽略的一种协议了。当你走进一间屋子，手机自动连上了WiFi，当你离开了屋子，又自动断开了WiFi……这一系列的幕后都是DHCP协议在默默工作。 DHCP协议(Dynamic Host Configuration Protocol)是一个基于UDP协议的局域网的网络协议。指的是由服务器控制一段IP地址范围，客户机登录服务">
 <meta property="og:image" content="http://cherryyang05.github.io/.io//DHCP%E7%A7%9F%E5%80%9F.png">
-<meta property="og:image" content="http://cherryyang05.github.io/.io//DHCP%E6%8F%A1%E6%89%8B.jpg">
 <meta property="og:image" content="http://cherryyang05.github.io/.io//DHCP%E6%95%B0%E6%8D%AE%E5%8C%85%E4%BB%8B%E7%BB%8D.png">
 <meta property="og:image" content="http://cherryyang05.github.io/.io//%E5%85%B7%E4%BD%93%E6%A0%BC%E5%BC%8F.png">
 <meta property="og:image" content="http://cherryyang05.github.io/.io//DHCP%E5%85%B7%E4%BD%93%E5%86%85%E5%AE%B9.png">
@@ -94,7 +93,7 @@
 <meta property="og:image" content="http://cherryyang05.github.io/.io//DHCP%E5%85%B7%E4%BD%93%E6%A0%BC%E5%BC%8F.png">
 <meta property="og:image" content="http://cherryyang05.github.io/.io//option%E7%BB%84%E6%88%90.png">
 <meta property="article:published_time" content="2020-05-15T10:20:18.000Z">
-<meta property="article:modified_time" content="2020-05-15T15:40:04.463Z">
+<meta property="article:modified_time" content="2020-05-18T10:05:27.511Z">
 <meta property="article:author" content="Cherry">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="TCP&#x2F;IP协议">
@@ -417,10 +416,12 @@
 <p>在DHCP协议管理下，所有设备只能”租借“IP而不能“拥有”IP。有租借就必须有管理，DHCP协议的主要内容就在这里。租借时常根据设备的使用情况而定，作为服务器的设备租借时间必须很长，而对于手持设备而言，租借时间可以很短。在很多情况下，管理员为了防止IP被长时间无效占用，例如某台设备计划租借一个月，但它运行一天就关机了，那么这个IP就会在余下29天浪费掉，因此管理员会强制设备租借短时期，时期到了后再跟服务器请求延长租借期。</p>
 <p>管理员一般把IP池划分为若干类别，不同类别对应不同租期，然后根据接入设备的类型赋予不同类别的IP。一旦租期抵达一半时，设备就开始于服务器协商以便延长租期。</p>
 <p>下面是IP租借的流程图：</p>
+<!--  -->
 <p><img src="/.io//DHCP租借.png" alt="IP租借"></p>
 <p>上图描述了设备向DHCP服务器租借IP8天流程，其中在第4天要与服务器协商续租。租借IP的设备需要保持两个时钟，时钟T1在租借期过了一半时触发，此时设备向服务器请求续租；如果续租不成功，第二个时钟在租期87.5%时触发，设备向另一个DHCP服务器发起租借IP的请求。我们后面用代码实现协议时，主要通过构造数据包完成上面所述流程。</p>
 <p>DHCP协议时典型的服务器客户端应用模式。需要IP的设备是客户端，分发IP的设备是服务器，两者通过互发消息完成一项任务。他们之间的交互可以由下图表达：</p>
-<p><img src="/.io//DHCP握手.jpg" alt="DHCP握手"></p>
+
+<!-- ![DHCP握手](DHCP握手.jpg) -->
 <p>类似于<code>TCP</code>的握手，但是又比TCP简单不少。</p>
 <h2 id="二、DHCP主机动态配置协议解析和数据包格式说明"><a href="#二、DHCP主机动态配置协议解析和数据包格式说明" class="headerlink" title="二、DHCP主机动态配置协议解析和数据包格式说明"></a>二、DHCP主机动态配置协议解析和数据包格式说明</h2><h3 id="1-查看DHCP数据包"><a href="#1-查看DHCP数据包" class="headerlink" title="1. 查看DHCP数据包"></a>1. 查看DHCP数据包</h3><p>打开网络封包分析软件WireShack，输入过滤条件<code>bootp.option.type == 53</code>(或者<code>dhcp.option.type == 53</code>也可)，在命令行中输入<code>ipconfig/renew</code>，表示续租DHCP服务器，我们获取这样的数据包：</p>
 <p><img src="/.io//DHCP数据包介绍.png" alt="DHCP数据包介绍"></p>
