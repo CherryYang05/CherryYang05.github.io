@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://cherryyang05.github.io/2020/05/27/DNS%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%AE%9E%E7%8E%B0/Answer段完整数据结构.png">
 <meta property="og:image" content="http://cherryyang05.github.io/2020/05/27/DNS%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%AE%9E%E7%8E%B0/资源类型5.png">
 <meta property="article:published_time" content="2020-05-27T07:21:23.000Z">
-<meta property="article:modified_time" content="2020-05-30T06:39:47.027Z">
+<meta property="article:modified_time" content="2021-02-16T14:28:09.393Z">
 <meta property="article:author" content="Cherry">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="TCP&#x2F;IP协议">
@@ -179,7 +179,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">《上岸》</p>
       
   </div>
 
@@ -375,7 +375,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7.2k
+                  7k
                 </span>
               
 
@@ -423,7 +423,6 @@
 <p><img src="/2020/05/27/DNS%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%AE%9E%E7%8E%B0/DNS协议.png" alt="DNS协议"></p>
 <p>显然我们不可能实现全部功能，但我们会选择一些重要模块进行研究和实现，事实上抓住局部原理，对整体功能的把握也就能做到心中有数。DNS分为三大块，紫色部分是名字空间，它规定了域名的层级构造标准，第二部分是名字注册，它负责添加新设备的名称并防止名字冲突，第三部分是名字解析，它负责将域名转换为对应IP。</p>
 <p>在了解DNS协议时，我们需要掌握一个很重要的概念叫域名。”域名”其实是对一个特定领域的统一称呼。例如我的大学名叫”北京化工大学”，于是对于我母校而言，它是一级域名，在下面又分很多个学院，例如理学院，化工学院，文法学院等，这些学院名称就是二级”域名”，学院内又有很多个系，像我所在的理学院有：数学系，物理系，化工系，这些系的名称就是三级域名，系下面又分班，比如我所在的数学系分为1，2，3，4班，这四个班名称对应的是四级域名，每个班内的人都有自己的名字，于是就对应五级域名。</p>
-<p>因此要定位我的时候就可以使用如下格式：北京化工大学.理学院.数学系.3班.陈屹，这个世界上与我同名的人肯定不少，但是所有层级的域名都给我一致的，那很可能就只有我一个，除非在班里有和我同名的人，倘若如此，我们可以把名字再当做一级域名，在底下进行区分，例如一个班内有两个陈屹时，上面域名就可以变为：北京化工大学.理学院.数学系.3班.陈屹.A，在任何一个层级出现冲突时，我们可以在该层级切分出多个子层级，从而避免冲突。</p>
 <h3 id="DNS域名结构"><a href="#DNS域名结构" class="headerlink" title="DNS域名结构"></a>DNS域名结构</h3><p>DNS中的域名以拓扑树的方式存在，如下图：</p>
 <p><img src="/2020/05/27/DNS%E5%8D%8F%E8%AE%AE%E5%8E%9F%E7%90%86%E5%AE%9E%E7%8E%B0/DNS域名.png" alt="DNS域名"></p>
 <p>它以一个根节点开始，派生出一级域名，一级域名下面是二级域名，二级域名之后全都叫子域名。每一级域名可以使用数字和字符组合成的字符串来表示，其中字符串不区分大小写，同时一个域名下面的子域名不能相同，假设有一个一级域名叫<code>Black</code>,那么它下层的子域名可以是<code>white</code>，但必须只有一个，如果有另一个子域名叫<code>WHITE</code>，由于域名不区分大小写，因此两个域名被认为相同，这是不允许的。</p>
@@ -734,7 +733,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.7k</span>
+    <span title="Site words total count">24.5k</span>
   
 </div>
 
