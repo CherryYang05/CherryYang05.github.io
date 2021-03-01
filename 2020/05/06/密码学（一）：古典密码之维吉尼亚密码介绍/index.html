@@ -339,6 +339,17 @@
 
           
           
+             <span id="/2020/05/06/%E5%AF%86%E7%A0%81%E5%AD%A6%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E4%B9%8B%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81%E4%BB%8B%E7%BB%8D/" class="leancloud_visitors" data-flag-title="密码学（一）：古典密码之维吉尼亚密码介绍">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -391,7 +402,7 @@
 
       
         <h2 id="维吉尼亚（Vigenere-Cipher）密码原理介绍"><a href="#维吉尼亚（Vigenere-Cipher）密码原理介绍" class="headerlink" title="维吉尼亚（Vigenère Cipher）密码原理介绍"></a>维吉尼亚（Vigenère Cipher）密码原理介绍</h2><h3 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h3><blockquote>
-<p>&emsp;&emsp;维吉尼亚密码（又译维热纳尔密码）是使用一系列凯撒密码组成密码字母表的加密算法，属于多表密码的一种简单形式。<br>&emsp;&emsp;维吉尼亚密码曾多次被发明。该方法最早记录在吉奥万·巴蒂斯塔·贝拉索（ Giovan Battista Bellaso）于1553年所著的书《吉奥万·巴蒂斯塔·贝拉索先生的密码》（意大利语：La cifra del. Sig. Giovan Battista Bellaso）中。然而，后来在19世纪时被误传为是法国外交官布莱斯·德·维吉尼亚（Blaise De Vigenère）所创造，因此现在被称为“维吉尼亚密码”。<br>&emsp;&emsp;维吉尼亚密码以其简单易用而著称，同时初学者通常难以破解，因而又被称为“不可破译的密码”（法语：le chiffre indéchiffrable）。这也让很多人使用维吉尼亚密码来加密的目的就是为了将其破解。<br>来源：<a href="https://baike.baidu.com/item/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81/4905472?fr=aladdin" target="_blank" rel="noopener">百度百科</a><br><img src="https://img-blog.csdnimg.cn/20200216154546299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a id="more"></a></p>
+<p>&emsp;&emsp;维吉尼亚密码（又译维热纳尔密码）是使用一系列凯撒密码组成密码字母表的加密算法，属于多表密码的一种简单形式。<br>&emsp;&emsp;维吉尼亚密码曾多次被发明。该方法最早记录在吉奥万·巴蒂斯塔·贝拉索（ Giovan Battista Bellaso）于1553年所著的书《吉奥万·巴蒂斯塔·贝拉索先生的密码》（意大利语：La cifra del. Sig. Giovan Battista Bellaso）中。然而，后来在19世纪时被误传为是法国外交官布莱斯·德·维吉尼亚（Blaise De Vigenère）所创造，因此现在被称为“维吉尼亚密码”。<br>&emsp;&emsp;维吉尼亚密码以其简单易用而著称，同时初学者通常难以破解，因而又被称为“不可破译的密码”（法语：le chiffre indéchiffrable）。这也让很多人使用维吉尼亚密码来加密的目的就是为了将其破解。<br>来源：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81/4905472?fr=aladdin">百度百科</a><br><img src="https://img-blog.csdnimg.cn/20200216154546299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNjUwOTg4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><a id="more"></a></p>
 <h3 id="二、古典密码"><a href="#二、古典密码" class="headerlink" title="二、古典密码"></a>二、古典密码</h3><h4 id="1-移位密码"><a href="#1-移位密码" class="headerlink" title="1. 移位密码"></a>1. 移位密码</h4><p>我们首先引入符号表示：<br>$P$：明文空间，所有可能的明文组成的有限集<br>$C$：密文空间，所有可能的密文组成的有限集<br>$K$：密钥空间，所有可能的密钥 $k$ 组成的有限集<br>$Enc$：加密算法<br>&emsp;&emsp;$Enc_k(m)=c$ 加密算法$Enc$以密钥$k$、明文$m$为输入，输出密文$c$<br>$Dec$：加密算法<br>&emsp;&emsp;$Dec_k(c)=m$ 解密算法$Dec$以密钥$k$、密文$c$为输入，输出明文$m$<br>算法正确性：对每个明文 $m\in P$ 以及秘钥 $k\in K$ 都有 $Dec_k(Enc_k(m))=m$</p>
 </blockquote>
 <p>其中最典型的移位密码就是凯撒密码，凯撒密码是通过移位替换的方法，明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。</p>
@@ -560,7 +571,7 @@ Dec_k(c_1,c_2,...,c_n)=(c_1-k_1,c_2-k_2,...,c_n-k_n)</script><p>实际上就是�
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +582,7 @@ Dec_k(c_1,c_2,...,c_n)=(c_1-k_1,c_2-k_2,...,c_n-k_n)</script><p>实际上就是�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -582,7 +593,7 @@ Dec_k(c_1,c_2,...,c_n)=(c_1-k_1,c_2-k_2,...,c_n-k_n)</script><p>实际上就是�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -677,7 +688,7 @@ Dec_k(c_1,c_2,...,c_n)=(c_1-k_1,c_2-k_2,...,c_n-k_n)</script><p>实际上就是�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.5k</span>
+    <span title="Site words total count">25.4k</span>
   
 </div>
 
@@ -863,6 +874,113 @@ Dec_k(c_1,c_2,...,c_n)=(c_1-k_1,c_2-k_2,...,c_n-k_n)</script><p>实际上就是�
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("dGVqWfQ0pfDFVAlpg7qBl5jv-gzGzoHsz", "yvvgMUyK5hVxC0R8WmkKuH35");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
