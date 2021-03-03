@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="博弈论 第2节 学会换位思考一些定义形成博弈的要素  参与人（players），用 $i$, $j$ 表示 参与人的策略（strategies），用 $s{i}$, $s{j}$ 表示所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量 博弈的收益（payoffs），用">
+<meta name="description" content="博弈论 第2节 学会换位思考一些定义形成博弈的要素  参与人（players），用 $i$, $j$ 表示 参与人的策略（strategies），用 $s_{i}$，$s_{j}$ 表示；所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$；某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量 博弈的收益（payoffs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博弈论 第2节 学会换位思考">
 <meta property="og:url" content="http://cherryyang05.github.io/2021/03/03/%E5%8D%9A%E5%BC%88%E8%AE%BA-%E7%AC%AC2%E8%8A%82-%E5%AD%A6%E4%BC%9A%E6%8D%A2%E4%BD%8D%E6%80%9D%E8%80%83/index.html">
 <meta property="og:site_name" content="打球只投三分">
-<meta property="og:description" content="博弈论 第2节 学会换位思考一些定义形成博弈的要素  参与人（players），用 $i$, $j$ 表示 参与人的策略（strategies），用 $s{i}$, $s{j}$ 表示所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量 博弈的收益（payoffs），用">
+<meta property="og:description" content="博弈论 第2节 学会换位思考一些定义形成博弈的要素  参与人（players），用 $i$, $j$ 表示 参与人的策略（strategies），用 $s_{i}$，$s_{j}$ 表示；所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$；某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量 博弈的收益（payoffs">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-03-03T13:47:12.000Z">
-<meta property="article:modified_time" content="2021-03-03T17:50:30.477Z">
+<meta property="article:modified_time" content="2021-03-03T18:14:20.535Z">
 <meta property="article:author" content="Cherry">
 <meta name="twitter:card" content="summary">
 
@@ -397,8 +397,8 @@
         <h1 id="博弈论-第2节-学会换位思考"><a href="#博弈论-第2节-学会换位思考" class="headerlink" title="博弈论 第2节 学会换位思考"></a>博弈论 第2节 学会换位思考</h1><h2 id="一些定义"><a href="#一些定义" class="headerlink" title="一些定义"></a>一些定义</h2><p>形成博弈的要素</p>
 <ul>
 <li>参与人（players），用 $i$, $j$ 表示</li>
-<li>参与人的策略（strategies），用 $s<em>{i}$, $s</em>{j}$ 表示<br>所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$<br>某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量</li>
-<li>博弈的收益（payoffs），用大写的 $U$ 表示，$U<em>{i}$ 取决于参与博弈的 $N$ 个人的博弈策略，记做 $(s</em>{1},…,s<em>{i},…,s</em>{i})$，简写为 $U_{i}(s)$，由策略组合决定（即所有参与博弈的人）</li>
+<li>参与人的策略（strategies），用 $s_{i}$，$s_{j}$ 表示；<br>所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$；<br>某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量</li>
+<li>博弈的收益（payoffs），用大写的 $U$ 表示，$U_{i}$ 取决于参与博弈的 $N$ 个人的博弈策略，记做 $(s_{1},…,s_{i},…,s_{i})$，简写为 $U_{i}(s)$，由策略组合决定（即所有参与博弈的人）</li>
 </ul>
 <p>我们用 $s_{-i}$ 表示除了 $i$ 之外的其他参与者的决策，因为考虑在和对手在不同选择下的收益是很有必要的，填数游戏中以标准形式描述博弈：</p>
 <script type="math/tex; mode=display">
@@ -406,12 +406,38 @@ U_{i}(s)=
 \begin{cases}
     5美元 - 误差 \\
     0
-\end{cases}</script><p>再用一个例子熟悉使用符号语言来描述博弈：<br>||左|中|右|<br>|——|——|—-|——-|<br>|上|5, -1|11, 3|0, 0|<br>|下|6, 4|0, 2|2, 0|</p>
-<p>这里参与人是 $A$ 和 $B$<br>策略集合是 $S<em>{1}={上，下}$，$S</em>{2}={左，中，右}$<br>收益：例如 $U<em>{1}(上，中)=11$，$U</em>{2}(下，右)=0$</p>
+\end{cases}</script><p>再用一个例子熟悉使用符号语言来描述博弈：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>左</th>
+<th>中</th>
+<th>右</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上</td>
+<td>5, -1</td>
+<td>11, 3</td>
+<td>0, 0</td>
+</tr>
+<tr>
+<td>下</td>
+<td>6, 4</td>
+<td>0, 2</td>
+<td>2, 0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这里参与人是 $A$ 和 $B$<br>策略集合是 $S_{1}=\{上，下\}$，$S_{2}=\{左，中，右\}$<br>收益：例如 $U_{1}(上，中)=11$，$U_{2}(下，右)=0$</p>
 <p>显然对于参与者 $B$，右是严格劣势策略。因此我们给出 <strong>严格优势策略的定义：</strong></p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-参与人 i 的策略 s_{i}^{'} 严格劣于参与人 i 的另一个策略 s_{i}，在其他参与者\\选择 s_{-i} 时，选择 s_{i} 的收益 U_{i}(s_{i}) 严格优于此情况下 s_{i}^{'} 的收益 U_{i}(s_{i}^{'})
+参与人 i 的策略 s_{i}^{'} 严格劣于参与人 i 的另一个策略 s_{i}，在其他参与者\\ 选择 s_{-i} 时，选择 s_{i} 的收益 U_{i}(s_{i}) 严格优于此情况下 s_{i}^{'} 的收益 U_{i}(s_{i}^{'})
 \end{aligned}</script><p>再来一个例子：</p>
 <blockquote>
 <p>汉尼拔将军将要攻打一个国家，他有两个营的兵力，他可以选择从崎岖道路（翻过阿尔卑斯山）进军（但是行军途中要损失一个营的兵力），也可以选择从平坦的道路（平原）进军（途中没有损失）。防守者只能在崎岖道路和平坦道路其中之一设防，当进攻者遇到防守者时，进攻者将损失一个营的兵力。若你是防守者，你该选择何处设防？</p>
@@ -444,7 +470,8 @@ U_{i}(s)=
 <script type="math/tex; mode=display">
 \begin{aligned}
 \begin{array}{c}
-参与人 i 的策略 s_{i}^{'} 弱于参与人 i 的另一个策略 s_{i}，在其他参与者\\选择 s_{-i} 时，选择 s_{i} 的收益 U_{i}(s_{i}) 大于等于此情况下 s_{i}^{'} 的收益 U_{i}(s_{i}^{'})，即\\
+参与人 i 的策略 s_{i}^{'} 弱于参与人 i 的另一个策略 s_{i}，在其他参与者\\
+选择 s_{-i} 时，选择 s_{i} 的收益 U_{i}(s_{i}) 大于等于此情况下 s_{i}^{'} 的收益 U_{i}(s_{i}^{'})，即\\
 U_{i}(s_{i},s_{-i}) \geq U_{i}(s_{i}^{'},s_{-i})\ for\ all\ s_{-i} \\
 U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
 \end{array}
@@ -579,7 +606,7 @@ U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +617,7 @@ U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -601,7 +628,7 @@ U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -696,7 +723,7 @@ U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">26.3k</span>
+    <span title="Site words total count">25.6k</span>
   
 </div>
 
