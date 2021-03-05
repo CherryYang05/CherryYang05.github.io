@@ -87,7 +87,7 @@
 <meta property="og:description" content="博弈论 第2节 学会换位思考一些定义形成博弈的要素  参与人（players），用 $i$, $j$ 表示 参与人的策略（strategies），用 $s_{i}$，$s_{j}$ 表示；所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$；某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量 博弈的收益（payoffs">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-03-03T13:47:12.000Z">
-<meta property="article:modified_time" content="2021-03-03T18:14:20.535Z">
+<meta property="article:modified_time" content="2021-03-05T17:40:24.117Z">
 <meta property="article:author" content="Cherry">
 <meta name="twitter:card" content="summary">
 
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  760
+                  1.4k
                 </span>
               
 
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -398,9 +398,9 @@
 <ul>
 <li>参与人（players），用 $i$, $j$ 表示</li>
 <li>参与人的策略（strategies），用 $s_{i}$，$s_{j}$ 表示；<br>所有可能的策略集合 $S_{i}$，区别于参与人的策略小写 $s$；<br>某一次博弈 $s$，用不带下标的 $s$ 表示，称为策略组合（a strategy profile），也称为策略向量</li>
-<li>博弈的收益（payoffs），用大写的 $U$ 表示，$U_{i}$ 取决于参与博弈的 $N$ 个人的博弈策略，记做 $(s_{1},…,s_{i},…,s_{i})$，简写为 $U_{i}(s)$，由策略组合决定（即所有参与博弈的人）</li>
+<li>博弈的收益（payoffs），用大写的 $U$ 表示，$U_{i}$ 取决于参与博弈的 $N$ 个人的博弈策略，记做 $(s_{1},…,s_{i},…,s_{i})$，简写为 $U_{i}(s)$，由策略组合决定（即所有参与博弈的人）<a id="more"></a>
+我们用 $s_{-i}$ 表示除了 $i$ 之外的其他参与者的决策，因为考虑在和对手在不同选择下的收益是很有必要的，填数游戏中以标准形式描述博弈：</li>
 </ul>
-<p>我们用 $s_{-i}$ 表示除了 $i$ 之外的其他参与者的决策，因为考虑在和对手在不同选择下的收益是很有必要的，填数游戏中以标准形式描述博弈：</p>
 <script type="math/tex; mode=display">
 U_{i}(s)=
 \begin{cases}
@@ -433,8 +433,7 @@ U_{i}(s)=
 </tbody>
 </table>
 </div>
-<p>这里参与人是 $A$ 和 $B$<br>策略集合是 $S_{1}=\{上，下\}$，$S_{2}=\{左，中，右\}$<br>收益：例如 $U_{1}(上，中)=11$，$U_{2}(下，右)=0$</p>
-<p>显然对于参与者 $B$，右是严格劣势策略。因此我们给出 <strong>严格优势策略的定义：</strong></p>
+<p>这里参与人是 $A$ 和 $B$<br>策略集合是 $S_{1}=\{上，下\}$，$S_{2}=\{左，中，右\}$<br>收益：例如 $U_{1}(上，中)=11$，$U_{2}(下，右)=0$<br>显然对于参与者 $B$，右是严格劣势策略。因此我们给出 <strong>严格优势策略的定义：</strong></p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 参与人 i 的策略 s_{i}^{'} 严格劣于参与人 i 的另一个策略 s_{i}，在其他参与者\\ 选择 s_{-i} 时，选择 s_{i} 的收益 U_{i}(s_{i}) 严格优于此情况下 s_{i}^{'} 的收益 U_{i}(s_{i}^{'})
@@ -476,6 +475,15 @@ U_{i}(s_{i},s_{-i}) \geq U_{i}(s_{i}^{'},s_{-i})\ for\ all\ s_{-i} \\
 U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
 \end{array}
 \end{aligned}</script><!-- hspace{2cm} -->
+<h2 id="回到填数游戏"><a href="#回到填数游戏" class="headerlink" title="回到填数游戏"></a>回到填数游戏</h2><p>好，那么我们现在回到第一节课的填数游戏，在 $1-100$ 之间任选一个数，最接近平均数的 $\frac{2}{3}$ 的人获胜。</p>
+<p>老师询问了填 $33-35$ 之间的数的同学，他们回答：大家在 $1-100$ 之间随机选择一个数，最后平均值会在 $50$ 左右，而 $50$ 的三分之二就是 $33$ 左右。</p>
+<p>这个说法看似正确，但是却忽略了一个重要前提：<strong>教室里的人并不会随机选择一个数</strong>，他们都想赢得这5美元。若人人都这样想，最终平均值会趋近于 $33$，而 $33$ 的三分之二是 $22$。然而，这还是太大了。</p>
+<p>再次重申这个游戏的重点：每个人都有自己的策略，每个人都想赢。</p>
+<p>那么我们来分析一下这个游戏，哪些选择是（弱）劣势策略？</p>
+<p>设想最坏的情况，每个人都选了 $100$ 那么这样最终的结果也只是 $66\frac{2}{3}$ 最接近的是 $67$，那么选择大于 $67$ 的数相对于 $67$ 来说就是弱劣势策略。这样对于<strong>理智</strong>的人来说，游戏简化成了在 $1-67$ 之间选择一个数，因为他们知道没人会选择 $67$ 以上的数。<br>同样，相似的策略也会被排除，这样，$45$ 以上的数也不会有人选。但是 $45-67$ 之间的数在原博弈中并不是弱劣势策略，可是我们排除掉 $67-100$ 的时候，$45-67$ 便成为了弱劣势策略。同理，$30-45$ 也被排除，$20-30$，$14-20$……直至 $1$.</p>
+<p>尽管 $1$ 就是这个游戏的最优策略，但是这一切都是建立在参与人都是理性的情况下，并且理性的参与者知道其他人也都是理性的。我们用术语<strong>共同知识</strong>来描述类似：我知道，我知道你知道，我知道你知道我知道…这样的循环。但是实际上，每个区间的数都有人选择，这就要考虑分布的问题了。最终老师公布结果，平均数在 $13$ 左右，最终选择 $9$ 的人获得了胜利，巧的是，这也是所有人选择的中位数。</p>
+<p>按照之前的最优策略，为什么 $1$ 不是最终结果呢？尽管有相当一部分人选择了 $1$</p>
+
       
     </div>
     
@@ -689,7 +697,7 @@ U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%BC%88%E8%AE%BA-%E7%AC%AC2%E8%8A%82-%E5%AD%A6%E4%BC%9A%E6%8D%A2%E4%BD%8D%E6%80%9D%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">博弈论 第2节 学会换位思考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">一些定义</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%BC%88%E8%AE%BA-%E7%AC%AC2%E8%8A%82-%E5%AD%A6%E4%BC%9A%E6%8D%A2%E4%BD%8D%E6%80%9D%E8%80%83"><span class="nav-number">1.</span> <span class="nav-text">博弈论 第2节 学会换位思考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">一些定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%88%B0%E5%A1%AB%E6%95%B0%E6%B8%B8%E6%88%8F"><span class="nav-number">1.2.</span> <span class="nav-text">回到填数游戏</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -723,7 +731,7 @@ U_{i}(s_{i},s_{-i}) > U_{i}(s_{i}^{'},s_{-i})\ for\ some\ s_{-i}
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">25.6k</span>
+    <span title="Site words total count">26.2k</span>
   
 </div>
 
