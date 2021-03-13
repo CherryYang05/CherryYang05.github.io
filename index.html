@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.8k
                 </span>
               
 
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  6
                 </span>
               
             </div>
@@ -439,6 +439,29 @@
 <p>当浏览器访问服务器时，服务器会创建一个session对象（该对象有一个唯一的id号，称之为sessionId）服务器在默认的情况下，会将sessionId以cookie的方式，发送给浏览器，浏览器会将sessionId保存到内存中。当浏览器再次访问服务器时，会将sessionId发送给服务器，服务器依据sessionId就可以找到之间创建的session对象</p>
 <h3 id="4-定义字符串-String-str-“用户1-用户2-用户3-用户4”，现在想要对字符串根据字符“-”进行分割解析，下面哪种分割方式是正确的？"><a href="#4-定义字符串-String-str-“用户1-用户2-用户3-用户4”，现在想要对字符串根据字符“-”进行分割解析，下面哪种分割方式是正确的？" class="headerlink" title="4. 定义字符串 String str = “用户1|用户2|用户3|用户4”，现在想要对字符串根据字符“|”进行分割解析，下面哪种分割方式是正确的？"></a>4. 定义字符串 String str = “用户1|用户2|用户3|用户4”，现在想要对字符串根据字符“|”进行分割解析，下面哪种分割方式是正确的？</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.split(&amp;ldquo;\\|&amp;rdquo;)</span><br></pre></td></tr></table></figure>
 <p><code>|</code>属于正则表达式中的字符，转义字符前面加<code>\\</code></p>
+<h3 id="5-ATM-既可以用于广域网，又可以用于局域网，这是因为它的工作原理与-Ethernet-基本上是相同的"><a href="#5-ATM-既可以用于广域网，又可以用于局域网，这是因为它的工作原理与-Ethernet-基本上是相同的" class="headerlink" title="5. ATM 既可以用于广域网，又可以用于局域网，这是因为它的工作原理与 Ethernet 基本上是相同的"></a>5. ATM 既可以用于广域网，又可以用于局域网，这是因为它的工作原理与 Ethernet 基本上是相同的</h3><p>错误</p>
+<p>ATM可以用于广域网，也可以用于广域网，一般用于广域网比较多。<br>ATM的原理是采用面向连接的传输方式，将数据分割成固定长度的信元，通过虚连接进行交换。<br>ATM的原理和以太网的原理是不一样的。</p>
+<p>ATM是一种为了多种业务设计的通用的面向连接的传输模式。它适用于局域网和广域网，它具有高速数据传输率和支持许多种类型如声音、数据、传真、实时视频、CD质量音频和图像的通信。<br>ATM采用面向连接的传输方式，将数据分割成固定长度的信元，通过虚连接进行交换。ATM集交换、复用、传输为一体，在复用上采用的是异步时分复用方式，通过信息的首部或标头来区分不同信道。</p>
+<h3 id="6-如果一个接口Glass有个方法setColor-，有个类BlueGlass实现接口Glass，则在类BlueGlass中正确的是"><a href="#6-如果一个接口Glass有个方法setColor-，有个类BlueGlass实现接口Glass，则在类BlueGlass中正确的是" class="headerlink" title="6. 如果一个接口Glass有个方法setColor()，有个类BlueGlass实现接口Glass，则在类BlueGlass中正确的是"></a>6. 如果一个接口Glass有个方法setColor()，有个类BlueGlass实现接口Glass，则在类BlueGlass中正确的是</h3><ul>
+<li>[ ] protected void setColor() {…}</li>
+<li>[ ] void setColor() {…}</li>
+<li>[x] public void setColor() {…}</li>
+<li>[ ] 以上语句都可以用在类BlueGlass中</li>
+</ul>
+<p>JAVA 子类重写继承的方法时,不可以降低方法的访问权限，子类继承父类的访问修饰符要比父类的更大，也就是更加开放，假如我父类是protected修饰的，其子类只能是protected或者public，绝对不能是friendly(默认的访问范围)或者private，当然使用private就不是继承了。还要注意的是，继承当中子类抛出的异常必须是父类抛出的异常的子异常，或者子类抛出的异常要比父类抛出的异常要少。<br>接口中属性为public static final，方法为public abstract.</p>
+<h3 id="7-以下哪些命令可以查看当前系统的启动时间"><a href="#7-以下哪些命令可以查看当前系统的启动时间" class="headerlink" title="7. 以下哪些命令可以查看当前系统的启动时间"></a>7. 以下哪些命令可以查看当前系统的启动时间</h3><ul>
+<li>[x] w</li>
+<li>[x] top</li>
+<li>[ ] ps</li>
+<li>[x] uptime</li>
+</ul>
+<p><code>w</code>: 查看当前登录到系统中的用户，并查看该用户正在运行的进程<br><code>top</code>: 查看Linux中的资源信息，第一行开始部分显示了系统当前时间，并显示已经运行了多长时间，两者相减就是系统启动时间<br><code>uptime</code>: 查看系统启动时间<br><code>who -b</code>: 查看登录到系统中的用户什么时候登录的</p>
+<h3 id="8-关于Nginx的安全加固，以下说法正确的是"><a href="#8-关于Nginx的安全加固，以下说法正确的是" class="headerlink" title="8. 关于Nginx的安全加固，以下说法正确的是"></a>8. 关于Nginx的安全加固，以下说法正确的是</h3><ul>
+<li>[ ] nginx的master进程不能以root权限启动</li>
+<li>[x] nginx的Worker进程不能以root权限启动</li>
+<li>[x] 图片等静态资源目录不能给脚本执行权限</li>
+<li>[x] 禁止访问.git、.svn和.sql目录，可以防止因运维操作不当造成的代码或数据泄漏</li>
+</ul>
 
           
         
@@ -2381,7 +2404,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.8k</span>
+    <span title="Site words total count">29.6k</span>
   
 </div>
 
