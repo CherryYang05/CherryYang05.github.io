@@ -88,7 +88,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://cherryyang05.github.io/2021/03/27/LeetCode%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89/搜索旋转排序数组.png">
 <meta property="article:published_time" content="2021-03-27T03:55:04.000Z">
-<meta property="article:modified_time" content="2021-05-04T03:48:29.474Z">
+<meta property="article:modified_time" content="2021-05-04T03:56:50.954Z">
 <meta property="article:author" content="Cherry">
 <meta property="article:tag" content="Hot 100">
 <meta name="twitter:card" content="summary">
@@ -397,8 +397,8 @@
       
 
       
-        <h3 id="LeetCode-热题-Hot-100"><a href="#LeetCode-热题-Hot-100" class="headerlink" title="LeetCode 热题 Hot 100"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problemset/leetcode-hot-100/">LeetCode 热题 Hot 100</a></h3><a id="more"></a>
-<p>[toc]</p>
+        <!-- toc -->
+<h3 id="LeetCode-热题-Hot-100"><a href="#LeetCode-热题-Hot-100" class="headerlink" title="LeetCode 热题 Hot 100"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problemset/leetcode-hot-100/">LeetCode 热题 Hot 100</a></h3><a id="more"></a>
 <h2 id="1-两数相加"><a href="#1-两数相加" class="headerlink" title="1. 两数相加"></a>1. 两数相加</h2><blockquote>
 <p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。</p>
 </blockquote>
@@ -442,7 +442,7 @@
 <p>为什么对应的数字较小的那个指针不可能再作为容器的边界了？</p>
 <p>在上面的分析部分，我们对这个问题有了一点初步的想法。这里我们定量地进行证明。</p>
 <p>考虑第一步，假设当前左指针和右指针指向的数分别为 $x$ 和 $y$，不失一般性，我们假设 $x \leq y$。同时，两个指针之间的距离为 $t$。那么，它们组成的容器的容量为：</p>
-<script type="math/tex; mode=display">min(x, y) * t = x * t</script><p>我们可以断定，如果我们保持左指针的位置不变，那么无论右指针在哪里，这个容器的容量都不会超过 $x*t$ 了。注意这里右指针只能向左移动，因为 我们考虑的是第一步，也就是 指针还指向数组的左右边界的时候。</p>
+<script type="math/tex; mode=display">min(x, y)*t =x*t</script><p>我们可以断定，如果我们保持左指针的位置不变，那么无论右指针在哪里，这个容器的容量都不会超过 $x*t$ 了。注意这里右指针只能向左移动，因为 我们考虑的是第一步，也就是 指针还指向数组的左右边界的时候。</p>
 <p>我们任意向左移动右指针，指向的数为 $y_1$，两个指针之间的距离为 $t_1$，那么显然有 $t_1 &lt; t$，并且 $min(x, y_1) \leq \min(x, y)$</p>
 <ul>
 <li><p>如果 $y_1 \leq y$，那么 $min(x, y_1) \leq \min(x, y)$</p>
