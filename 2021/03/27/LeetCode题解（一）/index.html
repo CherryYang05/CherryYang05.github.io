@@ -88,7 +88,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://cherryyang05.github.io/2021/03/27/LeetCode%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89/搜索旋转排序数组.png">
 <meta property="article:published_time" content="2021-03-27T03:55:04.000Z">
-<meta property="article:modified_time" content="2021-04-12T11:46:52.513Z">
+<meta property="article:modified_time" content="2021-05-04T03:48:29.474Z">
 <meta property="article:author" content="Cherry">
 <meta property="article:tag" content="Hot 100">
 <meta name="twitter:card" content="summary">
@@ -360,7 +360,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  2.3k
                 </span>
               
 
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  10
                 </span>
               
             </div>
@@ -434,6 +434,26 @@
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-number/">题目</a></p>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/largest-number/solution/zui-da-shu-by-leetcode-solution-sid5/">题解</a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">largestNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    sort(nums.begin(), nums.end(), [](<span class="keyword">int</span> x, <span class="keyword">int</span> y)&#123;</span><br><span class="line">        <span class="keyword">int</span> sx = <span class="number">10</span>, sy = <span class="number">10</span>;</span><br><span class="line">        <span class="keyword">while</span> (sx &lt;= x) &#123;</span><br><span class="line">            sx *= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (sy &lt;= y) &#123;</span><br><span class="line">            sy *= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x * sy + y &gt; y * sx + x;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">if</span> (nums[<span class="number">0</span>] == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">    <span class="built_in">string</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i : nums) &#123;</span><br><span class="line">        str += to_string(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = &#123;<span class="number">78</span>, <span class="number">7</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; largestNumber(v) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-盛最多水的容器"><a href="#6-盛最多水的容器" class="headerlink" title="6. 盛最多水的容器"></a>6. 盛最多水的容器</h2><blockquote>
+<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+</blockquote>
+<p>思路：双指针，从两端往中间遍历，每次将两端较小的指针向中间移动，直到相遇。</p>
+<p>证明如下：<br>双指针代表的是 可以作为容器边界的所有位置的范围。在一开始，双指针指向数组的左右边界，表示 数组中所有的位置都可以作为容器的边界，因为我们还没有进行过任何尝试。在这之后，我们每次将 对应的数字较小的那个指针 往 另一个指针 的方向移动一个位置，就表示我们认为 这个指针不可能再作为容器的边界了。</p>
+<p>为什么对应的数字较小的那个指针不可能再作为容器的边界了？</p>
+<p>在上面的分析部分，我们对这个问题有了一点初步的想法。这里我们定量地进行证明。</p>
+<p>考虑第一步，假设当前左指针和右指针指向的数分别为 $x$ 和 $y$，不失一般性，我们假设 $x \leq y$。同时，两个指针之间的距离为 $t$。那么，它们组成的容器的容量为：</p>
+<script type="math/tex; mode=display">min(x, y) * t = x * t</script><p>我们可以断定，如果我们保持左指针的位置不变，那么无论右指针在哪里，这个容器的容量都不会超过 $x*t$ 了。注意这里右指针只能向左移动，因为 我们考虑的是第一步，也就是 指针还指向数组的左右边界的时候。</p>
+<p>我们任意向左移动右指针，指向的数为 $y_1$，两个指针之间的距离为 $t_1$，那么显然有 $t_1 &lt; t$，并且 $min(x, y_1) \leq \min(x, y)$</p>
+<ul>
+<li><p>如果 $y_1 \leq y$，那么 $min(x, y_1) \leq \min(x, y)$</p>
+</li>
+<li><p>如果 $y_1 &gt; y$，那么 $min(x, y_1) = x = min(x, y)$</p>
+</li>
+</ul>
+<p>因此有：</p>
+<script type="math/tex; mode=display">min(x, y_t) * t_1 < min(x, y) * t</script><p>即无论我们怎么移动右指针，得到的容器的容量都小于移动前容器的容量。也就是说，这个左指针对应的数不会作为容器的边界了，那么我们就可以丢弃这个位置，将左指针向右移动一个位置，此时新的左指针于原先的右指针之间的左右位置，才可能会作为容器的边界。</p>
+<p>这样一来，我们将问题的规模减小了 1，被我们丢弃的那个位置就相当于消失了。此时的左右指针，就指向了一个新的、规模减少了的问题的数组的左右边界。便按照上述思路继续解决这个问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//11.盛水最多的容器</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> MAX = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>, r = height.size() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        res = (height[l] &lt; height[r] ? height[l] : height[r]) * (r - l);</span><br><span class="line">        <span class="keyword">if</span> (height[l] &lt; height[r]) l++;</span><br><span class="line">        <span class="keyword">else</span> r--;</span><br><span class="line">        <span class="keyword">if</span> (res &gt; MAX) MAX = res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> MAX;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v = &#123;<span class="number">1</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">7</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; maxArea(v) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -653,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeetCode-%E7%83%AD%E9%A2%98-Hot-100"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 热题 Hot 100</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0"><span class="nav-number"></span> <span class="nav-text">1. 两数相加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8"><span class="nav-number"></span> <span class="nav-text">2. 两数相加(链表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-number"></span> <span class="nav-text">3. 无重复字符的最长子串(滑动窗口)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><span class="nav-number"></span> <span class="nav-text">4. 搜索旋转排序数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9C%80%E5%A4%A7%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">5. 最大数</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#LeetCode-%E7%83%AD%E9%A2%98-Hot-100"><span class="nav-number">1.</span> <span class="nav-text">LeetCode 热题 Hot 100</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0"><span class="nav-number"></span> <span class="nav-text">1. 两数相加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8"><span class="nav-number"></span> <span class="nav-text">2. 两数相加(链表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-number"></span> <span class="nav-text">3. 无重复字符的最长子串(滑动窗口)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><span class="nav-number"></span> <span class="nav-text">4. 搜索旋转排序数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9C%80%E5%A4%A7%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">5. 最大数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="nav-number"></span> <span class="nav-text">6. 盛最多水的容器</span></a></div>
             
 
           </div>
@@ -687,7 +707,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32.7k</span>
+    <span title="Site words total count">33.6k</span>
   
 </div>
 
